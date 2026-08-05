@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CHRD — Signal</title>
-    <meta name="description" content="Quick demo: Signal on CHRD — what's on near you." />
+    <meta name="description" content="Signal on CHRD — real-time discovery by proximity." />
     <style>
       :root {
         color-scheme: dark;
         --bg: #000;
         --text: #fff;
-        --muted: rgba(255, 255, 255, 0.62);
-        --accent: #e10600;
-        --border: rgba(255, 255, 255, 0.1);
+        --muted: rgba(255, 255, 255, 0.55);
+        --accent: #ff9500;
+        --border: rgba(255, 255, 255, 0.12);
       }
       * {
         box-sizing: border-box;
@@ -24,65 +24,85 @@
           sans-serif;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.5;
+        line-height: 1.55;
       }
       .wrap {
-        max-width: 720px;
+        max-width: 980px;
         margin: 0 auto;
-        padding: 24px 20px 48px;
+        padding: 40px 24px 56px;
       }
-      .badge {
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      header {
+        text-align: center;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 36px;
+      }
+      .logo {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        color: var(--accent);
+        margin: 0 0 8px;
+      }
+      .tagline {
+        font-size: 1.15rem;
+        margin: 0 0 6px;
+      }
+      .subtagline {
+        font-size: 0.95rem;
         color: var(--muted);
-        margin-bottom: 12px;
+        margin: 0;
       }
-      h1 {
-        font-size: clamp(1.75rem, 5vw, 2.25rem);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        margin: 0 0 12px;
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: start;
       }
-      .lead {
-        font-size: 1.05rem;
-        color: var(--muted);
-        margin: 0 0 28px;
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
       }
       video {
         width: 100%;
-        border-radius: 16px;
+        border-radius: 4px;
         border: 1px solid var(--border);
         background: #111;
         display: block;
       }
-      .caption {
-        margin-top: 12px;
-        font-size: 0.875rem;
-        color: var(--muted);
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 2rem);
+        font-weight: 700;
+        margin: 0 0 10px;
+        letter-spacing: -0.02em;
       }
-      ul {
-        margin: 28px 0 0;
+      .intro {
+        color: var(--muted);
+        margin: 0 0 8px;
+        font-size: 0.98rem;
+      }
+      .features {
+        margin: 20px 0 0;
         padding: 0;
         list-style: none;
       }
-      li {
-        padding: 14px 0;
-        border-top: 1px solid var(--border);
-        color: var(--muted);
+      .features li {
+        margin-bottom: 14px;
         font-size: 0.95rem;
+        color: var(--muted);
       }
-      li strong {
+      .features li strong {
         color: var(--text);
-        display: block;
-        margin-bottom: 4px;
       }
-      footer {
-        margin-top: 40px;
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.35);
+      .arrow {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .outro {
+        margin-top: 22px;
+        font-size: 0.92rem;
+        color: var(--muted);
       }
       a {
         color: var(--accent);
@@ -91,35 +111,53 @@
   </head>
   <body>
     <main class="wrap">
-      <p class="badge">CHRD feature demo</p>
-      <h1>Signal</h1>
-      <p class="lead">
-        See what's happening near you — gigs, sessions, and scene drops before they hit your feed.
-      </p>
+      <header>
+        <h1 class="logo">CHRD</h1>
+        <p class="tagline">Discover Music Together</p>
+        <p class="subtagline">Real-time social discovery for music lovers</p>
+      </header>
 
-      <video controls playsinline preload="metadata" poster="">
-        <source src="signal.mp4" type="video/mp4" />
-        Your browser doesn't support video. You can
-        <a href="signal.mp4">download the demo</a>.
-      </video>
-      <p class="caption">~30 sec walkthrough for TestFlight testers</p>
+      <div class="grid">
+        <div>
+          <video controls playsinline preload="metadata">
+            <source src="signal.mp4" type="video/mp4" />
+            Your browser doesn't support video.
+            <a href="signal.mp4">Download the demo</a>.
+          </video>
+        </div>
 
-      <ul>
-        <li>
-          <strong>Open Signal</strong>
-          From the bottom nav — your local scene hub.
-        </li>
-        <li>
-          <strong>What's on</strong>
-          Drop what you're at or what you're playing. Others nearby can discover it.
-        </li>
-        <li>
-          <strong>Local + City</strong>
-          Switch between your immediate area and the wider city pulse.
-        </li>
-      </ul>
+        <div>
+          <h2>Signal</h2>
+          <p class="intro">Your real-time discovery feed organized by proximity and time.</p>
+          <p class="intro">
+            Signal shows three types of content—all grouped by how far away they are happening
+            right now:
+          </p>
 
-      <footer>CHRD early access · Questions? Reply in TestFlight feedback.</footer>
+          <ul class="features">
+            <li>
+              <span class="arrow">→</span> <strong>Listening</strong>— People nearby who matched
+              your taste. See what they're listening to in real time. 🎧
+            </li>
+            <li>
+              <span class="arrow">→</span> <strong>Scene</strong>— Live events, venues,
+              performances, and things happening around you. Join a coffee chat, catch a vinyl shop,
+              or discover a park jam. 📍
+            </li>
+            <li>
+              <span class="arrow">→</span> <strong>Connect</strong>— Host or join a music
+              conversation party. Start one about any topic (song, artist, video, event) and match
+              with others in your vibe. 🎵
+            </li>
+          </ul>
+
+          <p class="outro">
+            Everything updates by proximity: soonest first (2–5 mins), then farther out (5–15 mins),
+            then beyond. Swipe through to see what's buzzing near you, follow the audio clips, tap
+            to join.
+          </p>
+        </div>
+      </div>
     </main>
   </body>
 </html>
