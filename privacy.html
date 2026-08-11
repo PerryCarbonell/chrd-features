@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHRD — Privacy Policy</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --line: #36393f;
+      --text: #ffffff;
+      --muted: #a0a1a7;
+      --accent: #FF8A00;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 1.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .updated {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .legal section {
+      margin-bottom: 2rem;
+    }
+    .legal h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+    .legal h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin: 1rem 0 0.45rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .legal p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+    }
+    .legal ul {
+      list-style: none;
+      margin: 0.35rem 0 0.65rem;
+      padding: 0;
+    }
+    .legal li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.4rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .legal li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    .legal a {
+      color: var(--accent);
+      word-break: break-word;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to CHRD demos</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: August 2026</p>
+
+    <div class="legal">
+      <section>
+        <h2>Overview</h2>
+        <p>CHRD ("we," "us," "our") is a social music discovery app. During early testing with friends and family, CHRD is operated by Perry Carbonell (contact below). We will update this policy if the operating entity changes.</p>
+        <p>We collect only what we need to run the app: your account, posts, taste and proximity matching, and safety tooling. We do not sell your data. We do not serve ads. We do not use third-party analytics or advertising trackers in the app today.</p>
+      </section>
+
+      <section>
+        <h2>What we collect</h2>
+        <h3>Account &amp; profile</h3>
+        <ul>
+          <li>Email address, username, and profile photo (optional)</li>
+          <li>Sign-in via Apple, Google, or email magic link (handled by Supabase Auth)</li>
+          <li>Profile content you choose to add: bio, music lists (e.g. On Rotation, Next Gigs), theme settings, social links, optional profile header video</li>
+          <li>Kept while your account is active; deleted within 30 days after you request account deletion</li>
+        </ul>
+        <h3>Age verification (Didit)</h3>
+        <p>Before full access, you must complete age verification through Didit (face scan in your device browser).</p>
+        <ul>
+          <li>Didit processes biometric and identity signals to estimate or verify age; we receive a pass/fail result and store verification status on your profile</li>
+          <li>We do not store your face scan video in CHRD; Didit processes it under their policy</li>
+          <li>Didit privacy policy: <a href="https://didit.me/privacy-policy" rel="noopener noreferrer">didit.me/privacy-policy</a></li>
+        </ul>
+        <h3>Spotify (optional)</h3>
+        <p>If you connect Spotify in Settings, we request read-only access to your currently playing track, playback state, and basic profile/email scopes needed for OAuth.</p>
+        <ul>
+          <li>Used to show what you are listening to, match you with similar listeners, and power Connect Party / Signal listening features</li>
+          <li>OAuth tokens are stored securely until you disconnect Spotify</li>
+          <li>Derived taste signals used for matching are not kept long-term (typically deleted within 7 days)</li>
+          <li>We do not sell Spotify data or use it to train competing recommendation models</li>
+          <li>Disconnect anytime in Settings → Integrations</li>
+          <li>Spotify privacy policy: <a href="https://www.spotify.com/us/legal/privacy-policy/" rel="noopener noreferrer">spotify.com/legal/privacy-policy</a></li>
+        </ul>
+        <h3>Location (optional but important)</h3>
+        <ul>
+          <li>Approximate location (coarse — not precise GPS pin) for Signal, nearby events, and Connect Party proximity</li>
+          <li>Updated when you open the app or use location-based features</li>
+          <li>Used for matching and display; typically deleted within 24 hours</li>
+          <li>Disable in iOS Settings → Privacy → Location Services; some features will not work without it</li>
+        </ul>
+        <h3>Posts &amp; media</h3>
+        <p>When you create photo, video, audio, or text posts:</p>
+        <ul>
+          <li>Photos are stored in Supabase Storage</li>
+          <li>Video and audio are stored and streamed via Bunny.net, encrypted in transit (HTTPS) and encrypted at rest on Bunny</li>
+          <li>We store post metadata (format, duration, timestamps, captions, hashtags)</li>
+          <li>Media remains until you delete the post or your account</li>
+          <li>Basic playback/delivery metrics from our CDN may be retained up to 90 days to operate and debug the service</li>
+          <li>Bunny privacy policy: <a href="https://bunny.net/privacy" rel="noopener noreferrer">bunny.net/privacy</a></li>
+        </ul>
+        <h3>Social activity</h3>
+        <ul>
+          <li>Comments, likes, superlikes, follows, and in-app Activity notifications</li>
+          <li>Post tags and caption @mentions you create at share time</li>
+          <li>Signal listening entries when you share what you are playing</li>
+          <li>Scene / event RSVPs when you use those features</li>
+          <li>Connect Party chat messages and session metadata — ephemeral (see Connect Party below)</li>
+        </ul>
+        <h3>Connect Party</h3>
+        <ul>
+          <li>15-minute group conversations matched on taste or topic</li>
+          <li>Chat messages are temporary and removed when the party ends</li>
+          <li>Session matching data is deleted after the party ends</li>
+          <li>We do not keep a permanent record of party chat history</li>
+        </ul>
+        <h3>Flagging &amp; moderation</h3>
+        <ul>
+          <li>When you flag content or report a user: your user ID, target content ID, reason, and timestamp</li>
+          <li>Used only for safety and moderation; not shown to the reported user</li>
+          <li>Flag counts may reset after 30 days for re-evaluation</li>
+          <li>You can remove your own flag within 24 hours where the app allows it</li>
+        </ul>
+        <h3>Device permissions</h3>
+        <ul>
+          <li>Camera — video posts, profile media, Didit age verification (in Safari)</li>
+          <li>Microphone — audio posts and recordings</li>
+          <li>Photo library — choosing photos or videos to upload</li>
+          <li>Location — nearby Signal and event features (if enabled)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How we use your data</h2>
+        <ul>
+          <li>Run the app: feeds, profiles, posts, Signal, Connect Party, and Activity</li>
+          <li>Match you with people and content based on taste and proximity</li>
+          <li>Verify age and keep the community safe (moderation, flags)</li>
+          <li>Process and deliver media (photos, video, audio)</li>
+          <li>Send in-app Activity notifications (we do not send marketing push notifications today)</li>
+        </ul>
+        <h3>We do not</h3>
+        <ul>
+          <li>Sell your personal information</li>
+          <li>Show third-party ads or use ad trackers</li>
+          <li>Track you across other companies' apps or websites for advertising</li>
+          <li>Use your content to train our own or third-party AI models</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Analytics</h2>
+        <p>We do not use third-party analytics SDKs (e.g. Firebase Analytics, Mixpanel, Meta pixel) in CHRD today.</p>
+        <p>We may keep short-lived server and error logs (e.g. Supabase Edge Functions, CDN logs) to fix bugs and keep the service running. Those logs are operational, not used for advertising, and are not linked to sell your data.</p>
+        <p>If we add product analytics later, we will update this policy before or when that changes.</p>
+      </section>
+
+      <section>
+        <h2>Third-party processors</h2>
+        <p>We use service providers only to operate CHRD. They process data on our instructions and may not sell it for their own marketing:</p>
+        <ul>
+          <li>Supabase — authentication, database, and photo storage</li>
+          <li>Bunny.net — video and audio storage and streaming</li>
+          <li>Spotify — optional listening and taste data (when you connect)</li>
+          <li>Didit — age verification</li>
+          <li>Apple / Google — sign-in (subject to their policies when you use those buttons)</li>
+        </ul>
+        <p>These providers may process data in countries other than Australia. We choose providers with appropriate security and contractual protections.</p>
+      </section>
+
+      <section>
+        <h2>Data retention (summary)</h2>
+        <ul>
+          <li>Account &amp; profile — until you delete your account (+ up to 30 days to purge backups)</li>
+          <li>Age verification status — life of account</li>
+          <li>Spotify OAuth tokens — until you disconnect</li>
+          <li>Spotify-derived taste signals — about 7 days</li>
+          <li>Location — about 24 hours</li>
+          <li>Posts &amp; media — until you delete the post or account</li>
+          <li>Connect Party chat — until the party ends (~15 minutes)</li>
+          <li>Flags / reports — about 30 days, then counts may reset</li>
+          <li>CDN / playback operational logs — up to 90 days</li>
+          <li>Activity notifications — while your account is active (removed with account deletion)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Your rights</h2>
+        <p>You can:</p>
+        <ul>
+          <li>Access — request a copy of your data</li>
+          <li>Delete — request account deletion (we purge within 30 days)</li>
+          <li>Export — request a portable copy where feasible</li>
+          <li>Opt out — turn off location, disconnect Spotify, or stop using optional features</li>
+          <li>Withdraw — stop using the app anytime</li>
+        </ul>
+        <p>Contact: <a href="mailto:contactpcarbonell@gmail.com">contactpcarbonell@gmail.com</a></p>
+      </section>
+
+      <section>
+        <h2>Age &amp; children</h2>
+        <p>CHRD requires age verification before use. The app is not intended for children.</p>
+        <p>We do not knowingly collect personal information from anyone who does not pass verification. If you believe a child has used CHRD, contact us and we will delete the account.</p>
+      </section>
+
+      <section>
+        <h2>Security</h2>
+        <ul>
+          <li>HTTPS for data in transit</li>
+          <li>Media encrypted at rest on Bunny; photos in secured cloud storage</li>
+          <li>Passwords and tokens handled by Supabase Auth — not stored in plain text in CHRD</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Changes</h2>
+        <p>We may update this policy. For material changes during testing, we will notify testers by email or in-app notice. Continued use after notice means you accept the updated policy.</p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Privacy questions or requests: <a href="mailto:contactpcarbonell@gmail.com">contactpcarbonell@gmail.com</a></p>
+        <p>Privacy concerns or reports: <a href="mailto:contactpcarbonell@gmail.com">contactpcarbonell@gmail.com</a></p>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <ul>
+          <li>Your data is used to run CHRD, not to sell ads</li>
+          <li>We do not sell your data</li>
+          <li>We do not use ad/analytics trackers today</li>
+          <li>You can delete your account</li>
+          <li>You control location and Spotify</li>
+          <li>Connect Party chats disappear when the party ends</li>
+          <li>Industry-standard encryption for media and sign-in</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>CHRD · 2026 · <a href="index.html">Demos</a></footer>
+  </div>
+</body>
+</html>

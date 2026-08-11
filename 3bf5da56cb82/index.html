@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHRD</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #1e1f22;
+      --line: #36393f;
+      --text: #ffffff;
+      --muted: #a0a1a7;
+      --accent: #FF8A00;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    header h1 {
+      font-size: clamp(2.75rem, 7vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .intro {
+      max-width: 38rem;
+      margin: 0 auto 3.75rem;
+      text-align: center;
+    }
+
+    .intro p {
+      margin: 0 0 0.55rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-group {
+      margin-bottom: 4rem;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: clamp(2rem, 5vw, 2.65rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      margin: 0 0 2.25rem;
+    }
+
+    .section-heading-line {
+      width: 2.75in;
+      height: 2px;
+      background: var(--line);
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .feature.reverse {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+    }
+
+    .feature.reverse .media { order: 2; }
+    .feature.reverse .copy { order: 1; }
+
+    .phone {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+      aspect-ratio: 9 / 19.5;
+      min-height: 720px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .phone video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .feature.landscape-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .feature.landscape-feature .media {
+      width: 100%;
+    }
+
+    .feature.landscape-feature .phone.landscape-phone {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 19.5 / 9;
+      min-height: 0;
+      margin: 0;
+    }
+
+    .feature.landscape-feature .phone.landscape-phone video {
+      object-fit: contain;
+    }
+
+    .feature.landscape-feature .copy {
+      width: 100%;
+      max-width: none;
+      text-align: center;
+    }
+
+    .feature.landscape-feature .copy h2 {
+      justify-content: center;
+    }
+
+    .feature.landscape-feature .copy ul {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .copy h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .copy h2 .icon {
+      display: inline-flex;
+      flex-shrink: 0;
+      width: 1.15em;
+      height: 1.15em;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .copy h2 .icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .copy ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .copy li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .copy li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 720px) {
+      .feature,
+      .feature.reverse {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .feature.reverse .media,
+      .feature.reverse .copy {
+        order: initial;
+      }
+
+      .phone {
+        max-width: 300px;
+        min-height: 560px;
+      }
+
+      .feature.landscape-feature .phone.landscape-phone {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CHRD</h1>
+      <p>Discover music together — nearby, now.</p>
+    </header>
+
+    <div class="intro">
+      <p>CHRD is real-time social discovery for music lovers.</p>
+      <p>Find your people, connect, and find your scene.</p>
+      <p>The walkthroughs below cover Home, Signal, and Profile.</p>
+    </div>
+
+    <div class="section-group">
+      <h2 class="section-heading"><span>Home</span><span class="section-heading-line" aria-hidden="true"></span></h2>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/home-web.mp4?v=15" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </span>
+          Feed
+        </h2>
+        <p>Your main timeline — swipe through posts, clips, and moments from your crew.</p>
+        <ul>
+          <li>Full-screen vertical feed with like, comment, and share</li>
+          <li>Tap through video, audio, and text posts in one place</li>
+          <li>Where you land when you open CHRD</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature landscape-feature">
+      <div class="media">
+        <div class="phone landscape-phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/landscape-web.mp4?v=12" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/></svg>
+          </span>
+          Landscape
+        </h2>
+        <p>Rotate your phone to watch a post in cinema mode — focused video with actions on the side.</p>
+        <ul>
+          <li>Landscape clips fill the screen; portrait posts use a split layout</li>
+          <li>Hashtag, caption, and engagement stay within reach</li>
+          <li>On grids, turn back to portrait to keep browsing</li>
+        </ul>
+      </div>
+    </section>
+
+    </div>
+
+    <div class="section-group">
+      <h2 class="section-heading"><span>Signal</span><span class="section-heading-line" aria-hidden="true"></span></h2>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/signal-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/></svg>
+          </span>
+          Overview
+        </h2>
+        <p>Your real-time discovery feed — organized by proximity and time.</p>
+        <ul>
+          <li><strong>Listening</strong> — taste matches nearby, live</li>
+          <li><strong>Scene</strong> — events and moments around you</li>
+          <li><strong>Connect</strong> — drop into a music conversation</li>
+        </ul>
+        <p>Soonest first (2–5 mins), then farther out (5–15 mins), then beyond. Swipe, follow clips, tap to join.</p>
+      </div>
+    </section>
+
+    <section class="feature reverse">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/signal-new/create-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>Create</h2>
+        <p>What's on — post Listening, Scene, or Connect from Signal.</p>
+        <ul>
+          <li>Share a track you're into</li>
+          <li>Drop a local scene or hang</li>
+          <li>Start a Connect party on a topic</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/signal-new/listen-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+          </span>
+          Listen
+        </h2>
+        <p>See who's nearby matching your taste — and what they're playing.</p>
+        <ul>
+          <li>Real-time listening cards</li>
+          <li>Taste intensity at a glance</li>
+          <li>Tap in when the vibe fits</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature reverse">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/signal-new/scene-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Scene
+        </h2>
+        <p>Live moments around you — venues, hangs, and things kicking off.</p>
+        <ul>
+          <li>Sorted by how close and how soon</li>
+          <li>Open a scene for the full detail</li>
+          <li>Join or follow what's on</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/signal-new/scene-audio-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Scene + audio
+        </h2>
+        <p>Same scene detail with sound — hear the clip while you read the room.</p>
+        <ul>
+          <li>Audio plays with the preview</li>
+          <li>Keep context: where, when, who's there</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature reverse">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/connect-web.mp4?v=13" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          Connect
+        </h2>
+        <p>Drop into a live music conversation — open parties in your Nearby feed.</p>
+        <ul>
+          <li>Join on a shared taste or topic (e.g. Jazz Lovers)</li>
+          <li>15-minute room with rotating topics and reactions</li>
+          <li>Ephemeral chat — tap Join from the feed when the vibe fits</li>
+        </ul>
+      </div>
+    </section>
+
+    </div>
+
+    <div class="section-group">
+      <h2 class="section-heading"><span>Profile</span><span class="section-heading-line" aria-hidden="true"></span></h2>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/on-rotation-web.mp4?v=8" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+          </span>
+          On Rotation
+        </h2>
+        <p>Show what you're into — the artists and tracks on repeat right now.</p>
+        <ul>
+          <li>Update your top artists from the Music tab</li>
+          <li>Visitors see your taste at a glance on your profile</li>
+          <li>A living snapshot of what's spinning this week</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature reverse">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/next-gigs-web.mp4?v=9" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          </span>
+          Next Gigs
+        </h2>
+        <p>List the shows you're hitting — dated entries on your profile Music tab.</p>
+        <ul>
+          <li>Add upcoming gigs with venue and date</li>
+          <li>Mark yourself going and see who's in your crew</li>
+          <li>Share what's on your calendar before the night</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="media">
+        <div class="phone">
+          <video controls playsinline preload="metadata">
+            <source src="videos/themes-web.mp4?v=14" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="copy">
+        <h2>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 1.25"/><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg>
+          </span>
+          Themes
+        </h2>
+        <p>Make your profile yours — colour, wallpaper, type, and optional header video.</p>
+        <ul>
+          <li>Pick a theme colour and wallpaper pattern</li>
+          <li>Choose bio typography and avatar style</li>
+          <li>Add a looping background video to your header</li>
+        </ul>
+      </div>
+    </section>
+
+    </div>
+
+    <footer>CHRD · 2026 · <a href="privacy.html">Privacy</a></footer>
+  </div>
+</body>
+</html>
