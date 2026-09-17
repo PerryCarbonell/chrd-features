@@ -198,24 +198,20 @@
     }
 
     .copy ul {
-      list-style: none;
+      list-style: disc;
       margin-top: 1rem;
+      padding-left: 1.35rem;
     }
 
     .copy li {
       color: var(--muted);
       font-size: 0.95rem;
       margin-bottom: 0.45rem;
-      padding-left: 1.1rem;
-      position: relative;
+      padding-left: 0.2rem;
     }
 
-    .copy li::before {
-      content: "→";
+    .copy li::marker {
       color: var(--accent);
-      position: absolute;
-      left: 0;
-      font-weight: 700;
     }
 
     footer {
@@ -284,8 +280,9 @@
         <p>Your main timeline — swipe through posts, clips, and moments from your crew.</p>
         <ul>
           <li>Full-screen vertical feed with like, comment, and share</li>
-          <li>Collapsed <strong>hashtag</strong> only — tap to reveal caption and author</li>
-          <li>Video, photo, and text posts; <strong>audio share is artist-only</strong> in the composer</li>
+          <li>Collapsed hashtag — tap to reveal caption and author</li>
+          <li>Video, photo, and text posts; artists can share audio posts</li>
+          <li>Long press to view the post without distraction, tap to return</li>
         </ul>
       </div>
     </section>
