@@ -102,6 +102,10 @@
       line-height: 1.4;
     }
 
+    .intro-signal.reverse {
+      grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    }
+
     .intro-live-music {
       margin: 1.75rem 0 1.25rem;
       text-align: left;
@@ -328,7 +332,8 @@
         order: initial;
       }
 
-      .intro-signal {
+      .intro-signal,
+      .intro-signal.reverse {
         grid-template-columns: 1fr;
         gap: 1.25rem;
         text-align: center;
@@ -393,13 +398,7 @@
         </figure>
       </div>
 
-      <div class="intro-signal">
-        <div class="intro-signal-copy">
-          <p>
-            <strong>Signal</strong> is your nearby feed—<strong>Right here · Around town · Coming up</strong>—matching taste
-            to how close or far others are.
-          </p>
-        </div>
+      <div class="intro-signal reverse">
         <figure class="intro-signal-figure">
           <img
             src="images/signal-time-tabs-orientation.png?v=3"
@@ -410,6 +409,12 @@
           />
           <figcaption>Right here · Around town · Coming up</figcaption>
         </figure>
+        <div class="intro-signal-copy">
+          <p>
+            <strong>Signal</strong> is your nearby feed—<strong>Right here · Around town · Coming up</strong>—matching taste
+            to how close or far others are.
+          </p>
+        </div>
       </div>
 
       <div class="intro-live-music">
