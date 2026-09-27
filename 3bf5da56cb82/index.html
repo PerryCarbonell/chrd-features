@@ -102,6 +102,50 @@
       line-height: 1.4;
     }
 
+    .intro-live-music {
+      margin: 1.75rem 0 1.25rem;
+      text-align: left;
+    }
+
+    .intro-live-music-copy {
+      font-size: 0.92rem;
+      line-height: 1.48;
+      max-width: 52rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .intro-live-music-copy p {
+      margin: 0;
+    }
+
+    .intro-live-music-shots {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .intro-live-music-shots figure {
+      margin: 0;
+    }
+
+    .intro-live-music-shots img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 1.15rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-live-music-shots figcaption {
+      margin-top: 0.45rem;
+      font-size: 0.72rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.35;
+    }
+
     .intro-tail {
       max-width: 38rem;
       margin: 0 auto;
@@ -300,6 +344,12 @@
         margin: 0 auto;
       }
 
+      .intro-live-music-shots {
+        grid-template-columns: 1fr;
+        max-width: min(100%, 340px);
+        margin: 0 auto;
+      }
+
       .phone {
         max-width: 300px;
         min-height: 560px;
@@ -347,9 +397,7 @@
         <div class="intro-signal-copy">
           <p>
             <strong>Signal</strong> is your nearby feed—<strong>Right here · Around town · Coming up</strong>—matching taste
-            to how close or far others are. Put live music on the map: stream a track you&apos;re into, play something
-            yourself, or show up where others already are. Meetups: pre-gig hangs or Record Store Day spins.
-            <strong>Rooms</strong>: Genre night or First listen club with a small crew.
+            to how close or far others are.
           </p>
         </div>
         <figure class="intro-signal-figure">
@@ -362,6 +410,48 @@
           />
           <figcaption>Right here · Around town · Coming up</figcaption>
         </figure>
+      </div>
+
+      <div class="intro-live-music">
+        <div class="intro-live-music-copy">
+          <p>
+            Put live music on the map: stream a track you&apos;re into, play something yourself, or show up where others
+            already are. <strong>Meetups</strong>: pre-gig hangs or Record Store Day spins.
+            <strong>Rooms</strong>: Genre night or First listen club with a small crew.
+          </p>
+        </div>
+        <div class="intro-live-music-shots">
+          <figure>
+            <img
+              src="images/signal-meetup-summer-jams.jpg?v=1"
+              width="471"
+              height="1024"
+              alt="Summer Jams live meetup on Signal with Mark interested and I'm going"
+              loading="lazy"
+            />
+            <figcaption>Meetup — show up live</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/signal-meetup-newtown-vinyl.jpg?v=1"
+              width="471"
+              height="1024"
+              alt="Newtown Vinyl meetup on Signal, Vinyl Appreciation Night"
+              loading="lazy"
+            />
+            <figcaption>Meetup — Record Store Day spin</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/signal-rooms-and-live-grid.jpg?v=1"
+              width="471"
+              height="1024"
+              alt="Signal feed with Jazz Lovers and Beats Room connect tiles plus Park jam and Bondi morning"
+              loading="lazy"
+            />
+            <figcaption>Rooms &amp; live moments on the grid</figcaption>
+          </figure>
+        </div>
       </div>
 
       <div class="intro-tail">
