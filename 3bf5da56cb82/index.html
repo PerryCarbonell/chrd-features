@@ -51,7 +51,7 @@
     }
 
     .intro {
-      max-width: 38rem;
+      max-width: 56rem;
       margin: 0 auto 3.75rem;
       text-align: center;
     }
@@ -61,6 +61,49 @@
       color: var(--muted);
       font-size: 1.02rem;
       line-height: 1.6;
+    }
+
+    .intro-signal {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+      gap: 2rem;
+      align-items: center;
+      margin: 1.75rem 0 1.5rem;
+      text-align: left;
+    }
+
+    .intro-signal-copy p {
+      margin-bottom: 0.85rem;
+    }
+
+    .intro-signal-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-signal-figure {
+      margin: 0;
+    }
+
+    .intro-signal-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 1.15rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-signal-figure figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .intro-tail {
+      max-width: 38rem;
+      margin: 0 auto;
     }
 
     .intro p:last-child {
@@ -240,6 +283,22 @@
         order: initial;
       }
 
+      .intro-signal {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        text-align: center;
+      }
+
+      .intro-signal-copy {
+        order: 2;
+      }
+
+      .intro-signal-figure {
+        order: 1;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
       .phone {
         max-width: 300px;
         min-height: 560px;
@@ -261,22 +320,46 @@
     <div class="intro">
       <p>CHRD is real-time social discovery for music lovers.</p>
       <p>Find your people, connect, and find your scene.</p>
-      <p>
-        CHRD starts by matching your favourite songs, artists, albums, and shows with people like you.
-        On <strong>Signal</strong>, those overlaps appear as you browse—strength reflects how much you share;
-        distance shows who&apos;s nearest. If you star a favourite song on your signal and someone nearby shares
-        that song, CHRD can surface a brief serendipity moment—a small, melancholic beat for a chance encounter.
-      </p>
-      <p>
-        Personalise your <strong>Profile Poster</strong>—scene tag, where you gig, where you&apos;re headed—and
-        update it whenever your mood shifts. <strong>About</strong> is where you set the scene you identify with;
-        the Poster is the print-style first impression others get.
-      </p>
-      <p>
-        Claim your band on CHRD so fans get a full artist Poster (gigs, music) and you show up in the
-        <strong>Artists</strong> tab.
-      </p>
-      <p>The walkthroughs below cover Home, Signal, Search, Profile, and Artists.</p>
+
+      <div class="intro-signal">
+        <div class="intro-signal-copy">
+          <p>
+            CHRD starts by matching your favourite songs, artists, albums, and shows with people like you.
+            On <strong>Signal</strong>, those overlaps appear as you browse—strength reflects how much you share;
+            distance shows who&apos;s nearest. If you star a favourite song on your signal and someone nearby shares
+            that song, CHRD can surface a brief serendipity moment—a small, melancholic beat for a chance encounter.
+          </p>
+          <p>
+            <strong>Signal</strong> is your nearby bento feed—<strong>Right here · Around town · Coming up</strong>—with
+            taste matches, local scene moments, <strong>solo live</strong> broadcasts, real-world <strong>meetups</strong>, and
+            <strong>Rooms</strong> for virtual listening parties. Tap <strong>+</strong> to update your signal, go live, start a
+            meetup, or host a room.
+          </p>
+        </div>
+        <figure class="intro-signal-figure">
+          <img
+            src="images/signal-tab-orientation.png?v=1"
+            width="885"
+            height="1920"
+            alt="Signal tab with nearby bento tiles and capsule nav: Home, Signal, Search, Artists, Profile"
+            loading="lazy"
+          />
+          <figcaption>Signal — nearby matches, live moments, and the capsule nav</figcaption>
+        </figure>
+      </div>
+
+      <div class="intro-tail">
+        <p>
+          Personalise your <strong>Profile Poster</strong>—scene tag, where you gig, where you&apos;re headed—and
+          update it whenever your mood shifts. <strong>About</strong> is where you set the scene you identify with;
+          the Poster is the print-style first impression others get.
+        </p>
+        <p>
+          Claim your band on CHRD so fans get a full artist Poster (gigs, music) and you show up in the
+          <strong>Artists</strong> tab.
+        </p>
+        <p>The walkthroughs below cover Home, Signal, Search, Profile, and Artists.</p>
+      </div>
     </div>
 
     <div class="section-group">
