@@ -3,12 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CHRD</title>
-  <link rel="canonical" href="https://getchrd.com/3bf5da56cb82/" />
-  <meta http-equiv="refresh" content="0; url=/3bf5da56cb82/" />
-  <script>location.replace("/3bf5da56cb82/");</script>
+  <meta name="description" content="Join the CHRD iPhone beta — Sydney music discovery." />
+  <title>CHRD — Join the beta</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #1e1f22;
+      --line: #36393f;
+      --text: #ffffff;
+      --muted: #a0a1a7;
+      --accent: #e24b4a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+    h1 {
+      font-size: clamp(2.25rem, 8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .tagline { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1.75rem 0 0.65rem;
+    }
+    p, li { color: var(--muted); font-size: 0.98rem; }
+    p { margin-bottom: 0.75rem; }
+    ul { margin: 0 0 1rem 1.15rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--accent); }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1rem;
+    }
+    .qr-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0 0.5rem;
+    }
+    .qr-block {
+      text-align: center;
+      max-width: 11rem;
+    }
+    .qr-block img {
+      display: block;
+      width: 11rem;
+      height: 11rem;
+      border-radius: 0.65rem;
+      background: #fff;
+      padding: 0.35rem;
+    }
+    .qr-block figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.65rem 1.15rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .email {
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+    .note {
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    code {
+      font-size: 0.88em;
+      background: #111;
+      padding: 0.1em 0.35em;
+      border-radius: 0.25rem;
+    }
+  </style>
 </head>
 <body>
-  <p><a href="/3bf5da56cb82/">CHRD — continue to the walkthrough</a></p>
+  <div class="wrap">
+    <h1>CHRD</h1>
+    <p class="tagline">Discover music together — nearby, now. Sydney iPhone beta.</p>
+
+    <div class="card">
+      <h2>1. Email us to get on TestFlight</h2>
+      <p>
+        Send an email to
+        <a class="email" id="contact-email" href="mailto:chrdapp@gmail.com">chrdapp@gmail.com</a>
+        with:
+      </p>
+      <ul>
+        <li><strong style="color: var(--text);">Apple ID email</strong> — the address on your iPhone (Settings → Apple Account)</li>
+        <li>Your first name (optional)</li>
+        <li>iPhone model &amp; iOS version (optional, helps with bugs)</li>
+      </ul>
+      <p>We’ll add you in App Store Connect. Then install the <strong style="color: var(--text);">TestFlight</strong> app, accept the invite, and install <strong style="color: var(--text);">CHRD</strong>.</p>
+      <a class="btn" id="mailto-btn" href="#">Email chrdapp@gmail.com</a>
+    </div>
+
+    <div class="card">
+      <h2>2. Join Discord</h2>
+      <p>Bugs, feedback, and updates live in our server — especially <code>#bugs-and-crash-reports</code>.</p>
+      <div class="qr-row">
+        <figure class="qr-block">
+          <img id="discord-qr" width="240" height="240" alt="QR code to join CHRD on Discord" />
+          <figcaption>Scan to join Discord</figcaption>
+        </figure>
+      </div>
+      <a class="btn secondary" id="discord-link" href="#" target="_blank" rel="noopener noreferrer">Open Discord invite</a>
+    </div>
+
+    <div class="card">
+      <h2>3. See what CHRD does</h2>
+      <p>Video walkthrough — Home, Signal, Search, Profile, Artists.</p>
+      <a class="btn secondary" href="/3bf5da56cb82/">Open features walkthrough</a>
+    </div>
+
+    <p class="note">Early beta · iPhone only · Sydney scene first. By joining you agree to keep builds confidential among testers.</p>
+  </div>
+
+  <script>
+    (function () {
+      // Replace with your permanent Discord invite (Server → Invite People → copy link)
+      var DISCORD_INVITE = "https://discord.gg/REPLACE_WITH_YOUR_INVITE";
+
+      var email = "chrdapp@gmail.com";
+      var subject = encodeURIComponent("CHRD TestFlight beta");
+      var body = encodeURIComponent(
+        "Hi — I'd like to join the CHRD TestFlight beta.\n\n" +
+          "Apple ID email (required):\n\n" +
+          "First name:\n\n" +
+          "iPhone model / iOS version (optional):\n"
+      );
+
+      document.getElementById("mailto-btn").href =
+        "mailto:" + email + "?subject=" + subject + "&body=" + body;
+
+      var discordEl = document.getElementById("discord-link");
+      var qrEl = document.getElementById("discord-qr");
+      if (DISCORD_INVITE.indexOf("REPLACE") === -1) {
+        discordEl.href = DISCORD_INVITE;
+        qrEl.src =
+          "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=" +
+          encodeURIComponent(DISCORD_INVITE);
+      } else {
+        discordEl.textContent = "Add Discord invite in site settings";
+        discordEl.removeAttribute("href");
+        qrEl.alt = "Set DISCORD_INVITE in index.html to show QR";
+        qrEl.style.background = "#333";
+      }
+    })();
+  </script>
 </body>
 </html>
