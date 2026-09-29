@@ -159,15 +159,26 @@
       <p>Bugs, feedback, and updates — especially <code>#bugs-and-crash-reports</code>.</p>
       <div class="qr-row">
         <figure class="qr-block">
-          <div id="discord-qr-placeholder" class="qr-placeholder" hidden>
-            QR appears when the server invite link is set in <code>discord-invite.js</code>.
-          </div>
-          <img id="discord-qr" width="240" height="240" alt="" hidden />
+          <img
+            id="discord-qr"
+            width="240"
+            height="240"
+            alt="QR code to join CHRD on Discord"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;margin=8&amp;data=https%3A%2F%2Fdiscord.gg%2FJRZMgvKFw"
+            loading="lazy"
+            decoding="async"
+          />
           <figcaption>Scan to join Discord</figcaption>
         </figure>
       </div>
       <div class="btn-row">
-        <a class="btn btn-secondary" id="discord-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+        <a
+          class="btn btn-secondary"
+          id="discord-link"
+          href="https://discord.gg/JRZMgvKFw"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Join Discord
         </a>
       </div>
@@ -195,24 +206,16 @@
       document.getElementById("mailto-btn").href =
         "mailto:" + email + "?subject=" + subject + "&body=" + body;
 
-      var invite = (window.CHRD_BETA_DISCORD_INVITE || "").trim();
+      var invite = (
+        window.CHRD_BETA_DISCORD_INVITE || "https://discord.gg/JRZMgvKFw"
+      ).trim();
       var discordBtn = document.getElementById("discord-link");
       var qrImg = document.getElementById("discord-qr");
-      var qrPlaceholder = document.getElementById("discord-qr-placeholder");
-
-      if (invite && invite.indexOf("discord.gg") !== -1) {
+      if (invite.indexOf("discord.gg") !== -1) {
         discordBtn.href = invite;
-        discordBtn.hidden = false;
         qrImg.src =
           "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=" +
           encodeURIComponent(invite);
-        qrImg.alt = "QR code to join CHRD on Discord";
-        qrImg.hidden = false;
-        qrPlaceholder.hidden = true;
-      } else {
-        qrPlaceholder.hidden = false;
-        qrImg.hidden = true;
-        discordBtn.hidden = true;
       }
     })();
   </script>
