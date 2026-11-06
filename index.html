@@ -51,9 +51,19 @@
       color: var(--text);
       margin-bottom: 0.55rem;
     }
-    .hero-lede em {
+    .hero-lede .hero-lede-accent {
+      display: block;
+      margin-top: 0.2em;
       font-style: normal;
       color: var(--accent);
+      font-size: clamp(1.05rem, 4vw, 1.55rem);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+    @media (max-width: 360px) {
+      .hero-lede .hero-lede-accent {
+        white-space: normal;
+      }
     }
     .hero-platform {
       color: var(--muted);
@@ -150,6 +160,10 @@
       text-align: center;
       line-height: 1.45;
     }
+    .testflight-email-note {
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
     code {
       font-size: 0.88em;
       background: #111;
@@ -162,7 +176,10 @@
   <div class="wrap">
     <header class="hero">
       <h1>CHRD</h1>
-      <p class="hero-lede">Discover music people near you — <em>same taste, same city, everywhere you go.</em></p>
+      <p class="hero-lede">
+        Discover music people near you —<br />
+        <em class="hero-lede-accent">same taste, same city, everywhere you go.</em>
+      </p>
       <p class="hero-platform">iPhone beta · Android in development.</p>
     </header>
 
@@ -174,7 +191,7 @@
         with the <strong style="color: var(--text);">email you use in CHRD</strong> (same as sign-up — Gmail, Apple, or any address).
       </p>
       <p>We’ll add you in App Store Connect. Install the <strong style="color: var(--text);">TestFlight</strong> app, accept the invite, then install <strong style="color: var(--text);">CHRD</strong>.</p>
-      <p class="note" style="margin-top: 0.75rem; padding-top: 0; border: none; font-size: 0.88rem;">
+      <p class="note testflight-email-note" style="margin-top: 0.75rem; padding-top: 0; border: none;">
         Use the email you’ll sign in with. If you use Sign in with Apple, use the email on your Apple ID.
       </p>
       <div class="btn-row">
