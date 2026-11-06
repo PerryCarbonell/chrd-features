@@ -141,6 +141,20 @@
       margin-bottom: 0;
     }
 
+    /** City / Rooms highlights inside intro — override `.intro` centre so copy aligns with other feature rows */
+    .intro .feature.intro-city-music-highlight {
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .intro .feature.intro-city-music-highlight .copy {
+      text-align: left;
+    }
+
+    .intro .feature.intro-city-music-highlight .copy h2 {
+      flex-wrap: wrap;
+    }
+
     /** No native `controls` on walkthrough videos — tap toggles play/pause (iOS Safari + Chrome) */
     video.walkthrough-tap-video {
       cursor: pointer;
@@ -154,58 +168,6 @@
 
     .intro-signal.reverse {
       grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
-    }
-
-    /** Separator before live music / Meetups / Rooms block */
-    hr.intro-live-music-rule {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 2.5rem auto 1.75rem;
-      max-width: min(42rem, 100%);
-    }
-
-    .intro-live-music {
-      margin: 0 0 3rem;
-      text-align: center;
-    }
-
-    .intro-live-music-copy {
-      font-size: 0.92rem;
-      line-height: 1.48;
-      max-width: 42rem;
-      margin: 0 auto 2.25rem;
-    }
-
-    .intro-live-music-copy p {
-      margin: 0;
-    }
-
-    .intro-live-music-shots {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .intro-live-music-shots figure {
-      margin: 0;
-    }
-
-    .intro-live-music-shots img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 1.15rem;
-      border: 1px solid var(--line);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .intro-live-music-shots figcaption {
-      margin-top: 0.45rem;
-      font-size: 0.72rem;
-      color: #666;
-      text-align: center;
-      line-height: 1.35;
     }
 
     .intro p:last-child {
@@ -412,12 +374,6 @@
         margin: 0 auto;
       }
 
-      .intro-live-music-shots {
-        grid-template-columns: 1fr;
-        max-width: min(100%, 340px);
-        margin: 0 auto;
-      }
-
       .phone {
         max-width: 300px;
         min-height: 560px;
@@ -475,53 +431,43 @@
         </div>
       </section>
 
-      <hr class="intro-live-music-rule" aria-hidden="true" />
+      <section class="feature intro-city-music-highlight">
+        <div class="media">
+          <div class="phone">
+            <video class="walkthrough-tap-video" playsinline preload="metadata">
+              <source src="videos/signal-new/meetup-web.mp4?v=19" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="copy">
+          <h2>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            See your city through music
+          </h2>
+          <p>Go live or join an event around you—solo moments and real-world meetups on the map.</p>
+        </div>
+      </section>
 
-      <div class="intro-live-music">
-        <div class="intro-live-music-copy">
-          <p>
-            Music isn&apos;t only what you save in your profile—it&apos;s what happens around you in the real world. Show
-            what you&apos;re playing, say you&apos;re heading to a gig, or join a hang someone has posted nearby.
-          </p>
-          <p>
-            <strong>Meetups</strong> · casual real-world hangs—pre-drinks before a show, a record-store spin, or similar.
-            <strong>Rooms</strong> · small virtual listening parties you can host or drop into with friends (think genre
-            night or a first-listen club).
-          </p>
+      <section class="feature reverse intro-city-music-highlight">
+        <div class="media">
+          <div class="phone">
+            <video class="walkthrough-tap-video" playsinline preload="metadata">
+              <source src="videos/connect-web.mp4?v=18" type="video/mp4" />
+            </video>
+          </div>
         </div>
-        <div class="intro-live-music-shots">
-          <figure>
-            <img
-              src="images/signal-meetup-summer-jams.jpg?v=1"
-              width="471"
-              height="1024"
-              alt="Summer Jams live meetup on Signal with Mark interested and I'm going"
-              loading="lazy"
-            />
-            <figcaption>Meetup — show up live</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="images/signal-meetup-newtown-vinyl.jpg?v=1"
-              width="471"
-              height="1024"
-              alt="Newtown Vinyl meetup on Signal, Vinyl Appreciation Night"
-              loading="lazy"
-            />
-            <figcaption>Meetup — Record Store Day spin</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="images/signal-rooms-and-live-grid.jpg?v=1"
-              width="471"
-              height="1024"
-              alt="Signal feed with Jazz Lovers and Beats Room connect tiles plus Park jam and Bondi morning"
-              loading="lazy"
-            />
-            <figcaption>Rooms &amp; live moments on the grid</figcaption>
-          </figure>
+        <div class="copy">
+          <h2>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            Music with people, for the people
+          </h2>
+          <p>Host or join a room—small groups, low pressure; real community.</p>
         </div>
-      </div>
+      </section>
     </div>
 
     <div class="section-group">
@@ -638,54 +584,6 @@
           <li>Tap the circled music note ♪ to tell others you appreciate them</li>
           <li>You will receive rose replies when someone nods back</li>
           <li>The signal icon will show you the strength of your match with others</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="feature">
-      <div class="media">
-        <div class="phone">
-          <video class="walkthrough-tap-video" playsinline preload="metadata">
-            <source src="videos/signal-new/meetup-web.mp4?v=18" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      <div class="copy">
-        <h2>
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          </span>
-          Solo live &amp; meetups
-        </h2>
-        <p>Real-world moments — broadcast solo or join a hang someone posted.</p>
-        <ul>
-          <li><strong>Solo live</strong> — tap Live now; 15 min LIVE, then ongoing</li>
-          <li><strong>Meetup</strong> — tap With others to join a meetup with others</li>
-          <li>Both solo and meetups will show broadcast live</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="feature reverse">
-      <div class="media">
-        <div class="phone">
-          <video class="walkthrough-tap-video" playsinline preload="metadata">
-            <source src="videos/connect-web.mp4?v=17" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      <div class="copy">
-        <h2>
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </span>
-          Rooms
-        </h2>
-        <p>Enjoy virtual listening parties with friends</p>
-        <ul>
-          <li>Pick a topic and a name, add friends and either start now or schedule later</li>
-          <li>Tap Join; host starts the room when it's time, lobby opens ≤5 min early</li>
-          <li>Everyone can choose a topic with party lasting 15 mins</li>
         </ul>
       </div>
     </section>
