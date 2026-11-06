@@ -110,6 +110,36 @@
       line-height: 1.4;
     }
 
+    /** Intro: same clip as Signal → Landing (wide phone + copy), replaces static screenshot */
+    .intro-signal-media {
+      margin: 0;
+    }
+
+    .intro-signal-media .intro-signal-video-shell {
+      border-radius: 1.15rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      aspect-ratio: 1024 / 756;
+      max-height: min(48vh, 400px);
+    }
+
+    .intro-signal-media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    @media (max-width: 720px) {
+      .intro-signal-media .intro-signal-video-shell {
+        max-height: none;
+        aspect-ratio: 16 / 10;
+      }
+    }
+
     .intro-signal.reverse {
       grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
     }
@@ -404,15 +434,12 @@
             chance encounter.
           </p>
         </div>
-        <figure class="intro-signal-figure">
-          <img
-            src="images/signal-feed-phone-only.jpg?v=1"
-            width="536"
-            height="1024"
-            alt="Signal — nearby feed with time tabs and bottom capsule nav (app only)"
-            loading="lazy"
-            decoding="async"
-          />
+        <figure class="intro-signal-figure intro-signal-media">
+          <div class="intro-signal-video-shell">
+            <video controls playsinline preload="metadata" width="1024" height="756">
+              <source src="videos/signal-landing-web.mp4?v=19" type="video/mp4" />
+            </video>
+          </div>
         </figure>
       </div>
 
@@ -546,30 +573,6 @@
 
     <div class="section-group">
       <h2 class="section-heading"><span>Signal</span><span class="section-heading-line" aria-hidden="true"></span></h2>
-
-    <section class="feature">
-      <div class="media">
-        <div class="phone">
-          <video controls playsinline preload="metadata">
-            <source src="videos/signal-landing-web.mp4?v=18" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      <div class="copy">
-        <h2>
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/></svg>
-          </span>
-          Landing
-        </h2>
-        <p>Signal opens on your real-time bento feed — three time bands, tiles sorted by travel time.</p>
-        <ul>
-          <li><strong>Right here · Around town · Coming up</strong> — what's nearest first</li>
-          <li>Closest tiles top-left; later ones toward bottom-right — ordered by time</li>
-          <li>Find your people, share live moments and hang out with others, connect in Rooms</li>
-        </ul>
-      </div>
-    </section>
 
     <section class="feature reverse">
       <div class="media">
