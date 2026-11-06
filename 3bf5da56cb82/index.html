@@ -110,7 +110,7 @@
       line-height: 1.4;
     }
 
-    /** Signal intro shot — full frame + subtle “video” zoom + pulsing spotlight on Signal tab */
+    /** Signal intro — phone UI only (portrait shot) + subtle zoom + pulsing ring on Signal tab */
     .intro-signal-nav-callout {
       margin-top: 0;
       border-radius: 1.15rem;
@@ -131,8 +131,8 @@
     .nav-spotlight-motion {
       position: relative;
       display: block;
-      /* Zoom drifts toward bottom-right where the phone + capsule nav sit */
-      transform-origin: 78% 92%;
+      /* Drift zoom toward capsule nav (bottom centre of the phone frame) */
+      transform-origin: 50% 88%;
       animation: navSignalKenBurns 9s ease-in-out infinite alternate;
     }
 
@@ -146,13 +146,13 @@
       box-shadow: none;
     }
 
-    /* Second icon in capsule nav (Signal / broadcast) — tuned for 1024×682 promo frame */
+    /* Second icon in capsule nav (Signal / broadcast) — tuned for portrait 671×1024 */
     .nav-signal-halo {
       position: absolute;
-      left: 74%;
-      bottom: 5.5%;
-      width: 7.25%;
-      max-width: 5.25rem;
+      left: 30%;
+      bottom: 3.6%;
+      width: 11%;
+      max-width: 4.75rem;
       aspect-ratio: 1;
       translate: -50% 0;
       border-radius: 50%;
@@ -188,9 +188,9 @@
 
     @media (max-width: 720px) {
       .nav-signal-halo {
-        left: 73%;
-        bottom: 5%;
-        width: 8.5%;
+        left: 30%;
+        bottom: 3.5%;
+        width: 12%;
       }
     }
 
@@ -503,10 +503,10 @@
             <div class="nav-spotlight-stage">
               <div class="nav-spotlight-motion">
                 <img
-                  src="images/signal-capsule-nav-spotlight.jpg?v=1"
-                  width="1024"
-                  height="682"
-                  alt="Signal feed with time tabs and bottom capsule nav; the Signal broadcast icon is ring-highlighted"
+                  src="images/signal-tab-nav-annotated.png?v=4"
+                  width="671"
+                  height="1024"
+                  alt="Signal — nearby feed and bottom capsule nav; the Signal broadcast icon is ring-highlighted"
                   loading="lazy"
                   decoding="async"
                 />
