@@ -131,8 +131,8 @@
     .nav-spotlight-motion {
       position: relative;
       display: block;
-      /* Drift zoom toward capsule nav (bottom centre of the phone frame) */
-      transform-origin: 50% 88%;
+      /* Drift zoom toward capsule nav (bottom of the phone frame) */
+      transform-origin: 50% 90%;
       animation: navSignalKenBurns 9s ease-in-out infinite alternate;
     }
 
@@ -146,13 +146,13 @@
       box-shadow: none;
     }
 
-    /* Second icon in capsule nav (Signal / broadcast) — tuned for portrait 671×1024 */
+    /* Second icon in capsule nav (Signal / broadcast) — tuned for portrait 536×1024 */
     .nav-signal-halo {
       position: absolute;
-      left: 30%;
-      bottom: 3.6%;
-      width: 11%;
-      max-width: 4.75rem;
+      left: 32.5%;
+      bottom: 4.2%;
+      width: 13%;
+      max-width: 4.5rem;
       aspect-ratio: 1;
       translate: -50% 0;
       border-radius: 50%;
@@ -188,9 +188,9 @@
 
     @media (max-width: 720px) {
       .nav-signal-halo {
-        left: 30%;
-        bottom: 3.5%;
-        width: 12%;
+        left: 32.5%;
+        bottom: 4%;
+        width: 14%;
       }
     }
 
@@ -503,10 +503,10 @@
             <div class="nav-spotlight-stage">
               <div class="nav-spotlight-motion">
                 <img
-                  src="images/signal-tab-nav-annotated.png?v=4"
-                  width="671"
+                  src="images/signal-feed-capsule-nav.jpg?v=1"
+                  width="536"
                   height="1024"
-                  alt="Signal — nearby feed and bottom capsule nav; the Signal broadcast icon is ring-highlighted"
+                  alt="Signal nearby feed; bottom capsule nav with the Signal broadcast icon ring-highlighted"
                   loading="lazy"
                   decoding="async"
                 />
