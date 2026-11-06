@@ -110,100 +110,6 @@
       line-height: 1.4;
     }
 
-    /** Signal intro — phone UI only (portrait shot) + subtle zoom + pulsing ring on Signal tab */
-    .intro-signal-nav-callout {
-      margin-top: 0;
-      border-radius: 1.15rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #000;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-      max-width: 100%;
-    }
-
-    .nav-spotlight-stage {
-      position: relative;
-      overflow: hidden;
-      border-radius: inherit;
-      background: #000;
-    }
-
-    .nav-spotlight-motion {
-      position: relative;
-      display: block;
-      /* Drift zoom toward capsule nav (bottom of the phone frame) */
-      transform-origin: 50% 90%;
-      animation: navSignalKenBurns 9s ease-in-out infinite alternate;
-    }
-
-    .nav-spotlight-motion img {
-      display: block;
-      width: 100%;
-      height: auto;
-      vertical-align: top;
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-    }
-
-    /* Second icon in capsule nav (Signal / broadcast) — tuned for portrait 536×1024 */
-    .nav-signal-halo {
-      position: absolute;
-      left: 32.5%;
-      bottom: 4.2%;
-      width: 13%;
-      max-width: 4.5rem;
-      aspect-ratio: 1;
-      translate: -50% 0;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.92);
-      box-shadow:
-        0 0 0 4px rgba(226, 75, 74, 0.28),
-        0 0 36px rgba(226, 75, 74, 0.45),
-        inset 0 0 22px rgba(255, 255, 255, 0.12);
-      pointer-events: none;
-      animation: navSignalPulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes navSignalKenBurns {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.07);
-      }
-    }
-
-    @keyframes navSignalPulse {
-      0%,
-      100% {
-        transform: translateZ(0) scale(1);
-        opacity: 0.88;
-      }
-      50% {
-        transform: translateZ(0) scale(1.14);
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-signal-halo {
-        left: 32.5%;
-        bottom: 4%;
-        width: 14%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .nav-spotlight-motion {
-        animation: none;
-      }
-
-      .nav-signal-halo {
-        animation: none;
-      }
-    }
-
     .intro-signal.reverse {
       grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
     }
@@ -499,21 +405,14 @@
           </p>
         </div>
         <figure class="intro-signal-figure">
-          <div class="intro-signal-nav-callout" role="group" aria-label="Signal nearby feed; the Signal tab in the capsule nav is highlighted">
-            <div class="nav-spotlight-stage">
-              <div class="nav-spotlight-motion">
-                <img
-                  src="images/signal-feed-capsule-nav.jpg?v=1"
-                  width="536"
-                  height="1024"
-                  alt="Signal nearby feed; bottom capsule nav with the Signal broadcast icon ring-highlighted"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="nav-signal-halo" aria-hidden="true"></span>
-              </div>
-            </div>
-          </div>
+          <img
+            src="images/signal-intro-composite.jpg?v=1"
+            width="1024"
+            height="579"
+            alt="CHRD copy beside the Signal feed mockup with time tabs and capsule nav"
+            loading="lazy"
+            decoding="async"
+          />
         </figure>
       </div>
 
