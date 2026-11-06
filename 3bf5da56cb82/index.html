@@ -156,8 +156,16 @@
       grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
     }
 
+    /** Separator before live music / Meetups / Rooms block */
+    hr.intro-live-music-rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 2.5rem auto 1.75rem;
+      max-width: min(42rem, 100%);
+    }
+
     .intro-live-music {
-      margin: 1.75rem 0 3rem;
+      margin: 0 0 3rem;
       text-align: center;
     }
 
@@ -467,12 +475,18 @@
         </div>
       </section>
 
+      <hr class="intro-live-music-rule" aria-hidden="true" />
+
       <div class="intro-live-music">
         <div class="intro-live-music-copy">
           <p>
-            Put live music on the map: stream a track you&apos;re into, play something yourself, or show up where others
-            already are. <strong>Meetups</strong>: pre-gig hangs or Record Store Day spins.
-            <strong>Rooms</strong>: Genre night or First listen club with a small crew.
+            Music isn&apos;t only what you save in your profile—it&apos;s what happens around you in the real world. Show
+            what you&apos;re playing, say you&apos;re heading to a gig, or join a hang someone has posted nearby.
+          </p>
+          <p>
+            <strong>Meetups</strong> · casual real-world hangs—pre-drinks before a show, a record-store spin, or similar.
+            <strong>Rooms</strong> · small virtual listening parties you can host or drop into with friends (think genre
+            night or a first-listen club).
           </p>
         </div>
         <div class="intro-live-music-shots">
