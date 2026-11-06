@@ -110,47 +110,10 @@
       line-height: 1.4;
     }
 
-    /**
-     * Hero: Signal landing walkthrough — full viewport width (easier to read Signal in the clip).
-     * Autoplay is muted (required by most browsers); unmute via controls.
-     */
-    .intro-signal-landing-hero {
-      margin: 1.25rem calc(50% - 50vw) 2rem;
-      width: 100vw;
-      max-width: 100vw;
-      border-radius: 0;
-      overflow: hidden;
-      border: none;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #000;
-      box-shadow: none;
-    }
-
-    .intro-signal-landing-hero video {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: min(88vh, 960px);
-      margin: 0 auto;
-      object-fit: contain;
-      object-position: center center;
-      vertical-align: top;
-      background: #000;
-    }
-
-    @media (max-width: 720px) {
-      .intro-signal-landing-hero video {
-        max-height: none;
-      }
-    }
-
-    /** Intro lede: copy only (hero video above) */
-    .intro-signal-lede {
-      display: block;
-      max-width: 42rem;
-      margin: 0 auto;
-      text-align: left;
+    /** Intro Signal clip — same grid + phone shell as feature sections (video | copy) */
+    .intro-signal-landing-feature.feature {
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .intro-signal.reverse {
@@ -382,10 +345,6 @@
     }
 
     @media (max-width: 720px) {
-      .intro-signal-lede {
-        text-align: left;
-      }
-
       .feature,
       .feature.reverse {
         grid-template-columns: 1fr;
@@ -442,25 +401,24 @@
       <p>CHRD is real-time social discovery for music lovers.</p>
       <p>Find your people, connect, and find your scene.</p>
 
-      <figure class="intro-signal-landing-hero">
-        <video
-          class="intro-signal-landing-hero-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          controls
-          controlslist="nodownload"
-          width="1024"
-          height="756"
-        >
-          <source src="videos/signal-landing-web.mp4?v=21" type="video/mp4" />
-        </video>
-      </figure>
-
-      <div class="intro-signal intro-signal-lede">
-        <div class="intro-signal-copy">
+      <section class="feature intro-signal-landing-feature">
+        <div class="media">
+          <div class="phone">
+            <video
+              class="intro-signal-landing-hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              controls
+              controlslist="nodownload"
+            >
+              <source src="videos/signal-landing-web.mp4?v=22" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="copy">
           <p>
             CHRD matches your favourite songs, artists, albums, and shows with people like you. On
             <strong>Signal</strong>, overlaps show as you browse—signal strength is how much you share. Star a favourite
@@ -468,7 +426,7 @@
             chance encounter.
           </p>
         </div>
-      </div>
+      </section>
 
       <div class="intro-signal reverse">
         <figure class="intro-signal-figure">
@@ -600,30 +558,6 @@
 
     <div class="section-group">
       <h2 class="section-heading"><span>Signal</span><span class="section-heading-line" aria-hidden="true"></span></h2>
-
-    <section class="feature">
-      <div class="media">
-        <div class="phone">
-          <video controls playsinline preload="metadata">
-            <source src="videos/signal-landing-web.mp4?v=21" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      <div class="copy">
-        <h2>
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/></svg>
-          </span>
-          Landing
-        </h2>
-        <p>Signal opens on your real-time bento feed — three time bands, tiles sorted by travel time.</p>
-        <ul>
-          <li><strong>Right here · Around town · Coming up</strong> — what's nearest first</li>
-          <li>Closest tiles top-left; later ones toward bottom-right — ordered by time</li>
-          <li>Find your people, share live moments and hang out with others, connect in Rooms</li>
-        </ul>
-      </div>
-    </section>
 
     <section class="feature reverse">
       <div class="media">
