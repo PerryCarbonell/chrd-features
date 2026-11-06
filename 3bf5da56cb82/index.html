@@ -116,6 +116,28 @@
       margin-bottom: 1.5rem;
     }
 
+    /** Same rhythm as `.feature .copy` elsewhere: readable measure, looser paragraphs than `.intro p` */
+    .intro .intro-signal-landing-feature .copy {
+      max-width: 38rem;
+      text-align: left;
+    }
+
+    .intro .intro-signal-landing-feature .copy p {
+      margin: 0 0 1.125rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .intro .intro-signal-landing-feature .copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .brand-mark {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
     .intro-signal.reverse {
       grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
     }
@@ -420,8 +442,8 @@
         </div>
         <div class="copy">
           <p>
-            CHRD looks at what you love (songs, artists, albums, gigs) and helps you bump into people nearby who love the
-            same things.
+            <span class="brand-mark">CHRD</span> looks at what you love (songs, artists, albums, gigs) and helps you bump into
+            people nearby who love the same things.
           </p>
           <p>
             Save a song you care about; when someone close by is into it too, you might get a small, unexpected moment
