@@ -133,8 +133,8 @@
       margin-bottom: 0;
     }
 
-    /** No native `controls` — tap toggles play/pause only (cleaner on iOS Safari) */
-    video.intro-signal-landing-hero-video {
+    /** No native `controls` on walkthrough videos — tap toggles play/pause (iOS Safari + Chrome) */
+    video.walkthrough-tap-video {
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
@@ -433,7 +433,7 @@
         <div class="media">
           <div class="phone">
             <video
-              class="intro-signal-landing-hero-video"
+              class="intro-signal-landing-hero-video walkthrough-tap-video"
               autoplay
               muted
               loop
@@ -523,7 +523,7 @@
     <section class="feature">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/home-web.mp4?v=15" type="video/mp4" />
           </video>
         </div>
@@ -548,7 +548,7 @@
     <section class="feature landscape-feature">
       <div class="media">
         <div class="phone landscape-phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/landscape-web.mp4?v=12" type="video/mp4" />
           </video>
         </div>
@@ -577,7 +577,7 @@
     <section class="feature reverse">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/signal-new/actions-web.mp4?v=21" type="video/mp4" />
           </video>
         </div>
@@ -596,7 +596,7 @@
     <section class="feature">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/signal-new/update-web.mp4?v=19" type="video/mp4" />
           </video>
         </div>
@@ -614,7 +614,7 @@
     <section class="feature reverse">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/signal-new/match-web.mp4?v=18" type="video/mp4" />
           </video>
         </div>
@@ -638,7 +638,7 @@
     <section class="feature">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/signal-new/meetup-web.mp4?v=18" type="video/mp4" />
           </video>
         </div>
@@ -662,7 +662,7 @@
     <section class="feature reverse">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/connect-web.mp4?v=17" type="video/mp4" />
           </video>
         </div>
@@ -691,7 +691,7 @@
     <section class="feature">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/search-subc-web.mp4?v=18" type="video/mp4" />
           </video>
         </div>
@@ -720,7 +720,7 @@
     <section class="feature reverse">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/poster-journal-web.mp4?v=18" type="video/mp4" />
           </video>
         </div>
@@ -743,7 +743,7 @@
     <section class="feature">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/themes-web.mp4?v=14" type="video/mp4" />
           </video>
         </div>
@@ -772,7 +772,7 @@
     <section class="feature reverse">
       <div class="media">
         <div class="phone">
-          <video controls playsinline preload="metadata">
+          <video class="walkthrough-tap-video" playsinline preload="metadata">
             <source src="videos/artist-web.mp4?v=18" type="video/mp4" />
           </video>
         </div>
@@ -799,48 +799,56 @@
   </div>
   <script>
     (function () {
-      var v = document.querySelector(".intro-signal-landing-hero-video");
-      if (!v || typeof v.play !== "function") return;
-
-      /** Muted autoplay — required on iOS / Chrome; keeps trying after load + tab focus */
-      v.defaultMuted = true;
-      v.muted = true;
-
-      function tryPlay() {
-        var p = v.play();
+      function safePlay(node) {
+        if (!node || typeof node.play !== "function") return;
+        var p = node.play();
         if (p && typeof p.catch === "function") {
           p.catch(function () {});
         }
       }
 
-      v.addEventListener("canplay", tryPlay, { once: true });
-      v.addEventListener("ended", function () {
-        v.currentTime = 0;
-        tryPlay();
+      /** All walkthrough clips: no `controls` attr — tap/click toggles play/pause only */
+      var all = document.querySelectorAll("video.walkthrough-tap-video");
+      for (var i = 0; i < all.length; i++) {
+        all[i].addEventListener("click", function (ev) {
+          ev.preventDefault();
+          if (this.paused) {
+            safePlay(this);
+          } else {
+            this.pause();
+          }
+        });
+      }
+
+      /** Intro hero: muted autoplay + loop */
+      var hero = document.querySelector(".intro-signal-landing-hero-video");
+      if (!hero) return;
+
+      hero.defaultMuted = true;
+      hero.muted = true;
+
+      function heroTryPlay() {
+        safePlay(hero);
+      }
+
+      hero.addEventListener("canplay", heroTryPlay, { once: true });
+      hero.addEventListener("ended", function () {
+        hero.currentTime = 0;
+        heroTryPlay();
       });
 
       document.addEventListener("visibilitychange", function () {
-        if (!document.hidden) tryPlay();
+        if (!document.hidden) heroTryPlay();
       });
       window.addEventListener("pageshow", function (ev) {
-        if (ev.persisted) tryPlay();
+        if (ev.persisted) heroTryPlay();
       });
 
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", tryPlay);
+        document.addEventListener("DOMContentLoaded", heroTryPlay);
       } else {
-        tryPlay();
+        heroTryPlay();
       }
-
-      /** Tap / click: play or pause only — no native `controls` bar (use click only; iOS also synthesizes click from tap) */
-      v.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        if (v.paused) {
-          tryPlay();
-        } else {
-          v.pause();
-        }
-      });
     })();
   </script>
 </body>
