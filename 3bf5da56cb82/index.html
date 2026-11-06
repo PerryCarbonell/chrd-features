@@ -133,6 +133,12 @@
       margin-bottom: 0;
     }
 
+    /** No native `controls` — tap toggles play/pause only (cleaner on iOS Safari) */
+    video.intro-signal-landing-hero-video {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     .brand-mark {
       color: var(--accent);
       font-weight: 700;
@@ -433,10 +439,9 @@
               loop
               playsinline
               preload="auto"
-              controls
-              controlslist="nodownload"
+              aria-label="Signal feed walkthrough — tap to pause or play"
             >
-              <source src="videos/signal-landing-web.mp4?v=22" type="video/mp4" />
+              <source src="videos/signal-landing-web.mp4?v=23" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -826,6 +831,16 @@
       } else {
         tryPlay();
       }
+
+      /** Tap / click: play or pause only — no native `controls` bar (use click only; iOS also synthesizes click from tap) */
+      v.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        if (v.paused) {
+          tryPlay();
+        } else {
+          v.pause();
+        }
+      });
     })();
   </script>
 </body>
