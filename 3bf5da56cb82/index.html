@@ -110,23 +110,39 @@
       line-height: 1.4;
     }
 
-    /** Hero: Signal landing walkthrough — autoplays muted (browser policy); user can unmute via controls */
+    /**
+     * Hero: Signal landing walkthrough — full viewport width (easier to read Signal in the clip).
+     * Autoplay is muted (required by most browsers); unmute via controls.
+     */
     .intro-signal-landing-hero {
-      margin: 1.25rem auto 2rem;
-      max-width: min(100%, 960px);
-      border-radius: 1.15rem;
+      margin: 1.25rem calc(50% - 50vw) 2rem;
+      width: 100vw;
+      max-width: 100vw;
+      border-radius: 0;
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: none;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       background: #000;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: none;
     }
 
     .intro-signal-landing-hero video {
       display: block;
       width: 100%;
       height: auto;
+      max-height: min(88vh, 960px);
+      margin: 0 auto;
+      object-fit: contain;
+      object-position: center center;
       vertical-align: top;
       background: #000;
+    }
+
+    @media (max-width: 720px) {
+      .intro-signal-landing-hero video {
+        max-height: none;
+      }
     }
 
     /** Intro lede: copy only (hero video above) */
@@ -435,10 +451,11 @@
           playsinline
           preload="auto"
           controls
+          controlslist="nodownload"
           width="1024"
           height="756"
         >
-          <source src="videos/signal-landing-web.mp4?v=20" type="video/mp4" />
+          <source src="videos/signal-landing-web.mp4?v=21" type="video/mp4" />
         </video>
       </figure>
 
@@ -588,7 +605,7 @@
       <div class="media">
         <div class="phone">
           <video controls playsinline preload="metadata">
-            <source src="videos/signal-landing-web.mp4?v=20" type="video/mp4" />
+            <source src="videos/signal-landing-web.mp4?v=21" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -835,12 +852,31 @@
     (function () {
       var v = document.querySelector(".intro-signal-landing-hero-video");
       if (!v || typeof v.play !== "function") return;
-      var tryPlay = function () {
+
+      /** Muted autoplay — required on iOS / Chrome; keeps trying after load + tab focus */
+      v.defaultMuted = true;
+      v.muted = true;
+
+      function tryPlay() {
         var p = v.play();
         if (p && typeof p.catch === "function") {
           p.catch(function () {});
         }
-      };
+      }
+
+      v.addEventListener("canplay", tryPlay, { once: true });
+      v.addEventListener("ended", function () {
+        v.currentTime = 0;
+        tryPlay();
+      });
+
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) tryPlay();
+      });
+      window.addEventListener("pageshow", function (ev) {
+        if (ev.persisted) tryPlay();
+      });
+
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", tryPlay);
       } else {
