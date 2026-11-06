@@ -110,10 +110,10 @@
       line-height: 1.4;
     }
 
-    /** Zoom on bottom nav so the Signal tab icon is obvious */
+    /** Annotated shot: Signal tab in capsule nav (static asset from device) */
     .intro-signal-nav-callout {
       margin-top: 0.85rem;
-      border-radius: 0.9rem;
+      border-radius: 1.15rem;
       overflow: hidden;
       border: 1px solid var(--line);
       background: #000;
@@ -121,26 +121,17 @@
       max-width: 100%;
     }
 
-    .intro-signal-nav-callout .nav-zoom-inner {
-      position: relative;
+    .intro-signal-nav-callout img {
+      display: block;
       width: 100%;
-      height: clamp(5.5rem, 22vw, 7.5rem);
-      overflow: hidden;
-    }
-
-    .intro-signal-nav-callout .nav-zoom-inner img {
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 118%;
       height: auto;
-      max-width: none;
-      transform: translateX(-50%);
-      transform-origin: bottom center;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
     }
 
     .intro-signal-nav-callout .nav-callout-caption {
-      margin-top: 0;
+      margin: 0;
       padding: 0.45rem 0.65rem 0.55rem;
       font-size: 0.74rem;
       color: var(--muted);
@@ -454,18 +445,16 @@
           />
           <figcaption>Signal — nearby matches, live moments, and the capsule nav</figcaption>
           <div class="intro-signal-nav-callout" role="group" aria-label="Signal tab in bottom navigation">
-            <div class="nav-zoom-inner">
-              <img
-                src="images/signal-tab-orientation.png?v=2"
-                width="885"
-                height="1920"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+            <img
+              src="images/signal-tab-nav-annotated.png?v=1"
+              width="390"
+              height="844"
+              alt="Signal screen with arrow pointing to the Signal tab in the bottom bar — Your nearby feed"
+              loading="lazy"
+              decoding="async"
+            />
             <p class="nav-callout-caption">
-              <strong style="color: var(--text);">Signal</strong> — second tab (broadcast icon). Tap it for taste + proximity.
+              <strong style="color: var(--text);">Signal</strong> — second tab (broadcast icon). Your nearby feed.
             </p>
           </div>
         </figure>
