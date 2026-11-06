@@ -110,7 +110,7 @@
       line-height: 1.4;
     }
 
-    /** Annotated Signal screen — zoomed crop (no duplicate full bleed above) */
+    /** Signal intro shot — full frame + subtle “video” zoom + pulsing spotlight on Signal tab */
     .intro-signal-nav-callout {
       margin-top: 0;
       border-radius: 1.15rem;
@@ -121,34 +121,86 @@
       max-width: 100%;
     }
 
-    .intro-signal-nav-callout .nav-zoom-wrap {
+    .nav-spotlight-stage {
+      position: relative;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      /* ~phone frame height; zoom shows larger UI */
-      max-height: min(78vh, 640px);
+      border-radius: inherit;
+      background: #000;
     }
 
-    .intro-signal-nav-callout .nav-zoom-wrap img {
+    .nav-spotlight-motion {
+      position: relative;
+      display: block;
+      /* Zoom drifts toward bottom-right where the phone + capsule nav sit */
+      transform-origin: 78% 92%;
+      animation: navSignalKenBurns 9s ease-in-out infinite alternate;
+    }
+
+    .nav-spotlight-motion img {
       display: block;
       width: 100%;
       height: auto;
-      max-width: none;
-      transform: scale(1.14);
-      transform-origin: center 12%;
+      vertical-align: top;
       border-radius: 0;
       border: none;
       box-shadow: none;
     }
 
-    @media (max-width: 720px) {
-      .intro-signal-nav-callout .nav-zoom-wrap {
-        max-height: min(70vh, 560px);
+    /* Second icon in capsule nav (Signal / broadcast) — tuned for 1024×682 promo frame */
+    .nav-signal-halo {
+      position: absolute;
+      left: 74%;
+      bottom: 5.5%;
+      width: 7.25%;
+      max-width: 5.25rem;
+      aspect-ratio: 1;
+      translate: -50% 0;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.92);
+      box-shadow:
+        0 0 0 4px rgba(226, 75, 74, 0.28),
+        0 0 36px rgba(226, 75, 74, 0.45),
+        inset 0 0 22px rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+      animation: navSignalPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes navSignalKenBurns {
+      from {
+        transform: scale(1);
       }
-      .intro-signal-nav-callout .nav-zoom-wrap img {
-        transform: scale(1.08);
-        transform-origin: center 10%;
+      to {
+        transform: scale(1.07);
+      }
+    }
+
+    @keyframes navSignalPulse {
+      0%,
+      100% {
+        transform: translateZ(0) scale(1);
+        opacity: 0.88;
+      }
+      50% {
+        transform: translateZ(0) scale(1.14);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-signal-halo {
+        left: 73%;
+        bottom: 5%;
+        width: 8.5%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-spotlight-motion {
+        animation: none;
+      }
+
+      .nav-signal-halo {
+        animation: none;
       }
     }
 
@@ -447,16 +499,19 @@
           </p>
         </div>
         <figure class="intro-signal-figure">
-          <div class="intro-signal-nav-callout" role="group" aria-label="Signal — nearby feed and capsule nav">
-            <div class="nav-zoom-wrap">
-              <img
-                src="images/signal-tab-nav-annotated.png?v=3"
-                width="390"
-                height="844"
-                alt="Signal — nearby feed. Bottom capsule nav labels: Home, Signal, Search, Artists, Profile"
-                loading="lazy"
-                decoding="async"
-              />
+          <div class="intro-signal-nav-callout" role="group" aria-label="Signal nearby feed; the Signal tab in the capsule nav is highlighted">
+            <div class="nav-spotlight-stage">
+              <div class="nav-spotlight-motion">
+                <img
+                  src="images/signal-capsule-nav-spotlight.jpg?v=1"
+                  width="1024"
+                  height="682"
+                  alt="Signal feed with time tabs and bottom capsule nav; the Signal broadcast icon is ring-highlighted"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="nav-signal-halo" aria-hidden="true"></span>
+              </div>
             </div>
           </div>
         </figure>
