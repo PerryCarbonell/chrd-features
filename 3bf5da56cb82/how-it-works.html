@@ -152,6 +152,11 @@
       background: #000;
     }
 
+    .phone.phone-video-cover video {
+      object-fit: cover;
+      object-position: center top;
+    }
+
     .feature.landscape-feature {
       display: flex;
       flex-direction: column;
@@ -435,9 +440,9 @@
 
     <section class="feature reverse">
       <div class="media">
-        <div class="phone">
+        <div class="phone phone-video-cover">
           <video class="walkthrough-tap-video" playsinline preload="metadata">
-            <source src="videos/connect-web.mp4?v=17" type="video/mp4" />
+            <source src="videos/music-with-people-web.mp4?v=2" type="video/mp4" />
           </video>
         </div>
       </div>

@@ -201,6 +201,12 @@
       background: #000;
     }
 
+    /** Screen recordings — crop baked in; cover fills the phone shell without letterboxing */
+    .phone.phone-video-cover video {
+      object-fit: cover;
+      object-position: center top;
+    }
+
     .copy h2 {
       font-size: 1.75rem;
       font-weight: 700;
@@ -359,7 +365,7 @@
 
       <section class="feature intro-city-music-highlight">
         <div class="media">
-          <div class="phone">
+          <div class="phone phone-video-cover">
             <video
               class="intro-mute-autoplay-video walkthrough-tap-video"
               autoplay
@@ -369,7 +375,7 @@
               preload="auto"
               aria-label="Music with people, for the people — tap to pause or play"
             >
-              <source src="videos/music-with-people-web.mp4?v=1" type="video/mp4" />
+              <source src="videos/music-with-people-web.mp4?v=2" type="video/mp4" />
             </video>
           </div>
         </div>
