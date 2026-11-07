@@ -32,29 +32,34 @@
 
     header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.75rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid var(--line);
     }
 
+    /** Same wordmark as landing — tap CHRD to return */
     header h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: clamp(2.75rem, 7vw, 3.75rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      margin-bottom: 0.5rem;
-      color: var(--text);
+      margin-bottom: 0.65rem;
     }
 
-    header .back-home {
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      color: var(--muted);
+    header h1 a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    header .back-home:hover {
-      color: var(--accent);
+    header h1 a:hover {
+      opacity: 0.88;
+    }
+
+    header h2.walkthrough-page-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0 0 0.5rem;
     }
 
     header p {
@@ -62,14 +67,6 @@
       font-size: 1.05rem;
       max-width: 36rem;
       margin: 0 auto;
-    }
-
-    /** Break before Home */
-    hr.intro-after-city-highlights {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 0 auto 2.5rem;
-      max-width: min(72rem, 100%);
     }
 
     /** No native `controls` on walkthrough videos — tap toggles play/pause (iOS Safari + Chrome) */
@@ -289,12 +286,10 @@
 <body>
   <div class="container">
     <header>
-      <a class="back-home" href="index.html">← CHRD</a>
-      <h1>How it works</h1>
+      <h1><a href="index.html">CHRD</a></h1>
+      <h2 class="walkthrough-page-title">How it works</h2>
       <p>Screen-by-screen walkthrough — tap any clip to pause or play.</p>
     </header>
-
-    <hr class="intro-after-city-highlights" aria-hidden="true" />
 
     <div class="section-group">
       <h2 class="section-heading"><span>Home</span><span class="section-heading-line" aria-hidden="true"></span></h2>
@@ -526,7 +521,7 @@
 
     </div>
 
-    <footer>CHRD · 2026 · <a href="index.html">Home</a> · <a href="how-it-works.html">How it works</a> · <a href="privacy.html">Privacy</a></footer>
+    <footer>CHRD · 2026 · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></footer>
   </div>
   <script>
     (function () {
