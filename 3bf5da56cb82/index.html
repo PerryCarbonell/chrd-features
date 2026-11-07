@@ -66,51 +66,24 @@
       letter-spacing: 0.01em;
     }
 
-    /** Full walkthrough CTA — after intro highlights (not footer-sized) */
-    .intro-how-it-works {
-      margin: 3rem auto 0;
-      max-width: 28rem;
-      padding: 1.75rem 1.5rem 1.85rem;
-      text-align: center;
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: var(--surface);
-    }
-
-    .intro-how-it-works h2 {
-      font-size: clamp(1.35rem, 4vw, 1.65rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin: 0 0 0.5rem;
-    }
-
-    .intro-how-it-works p {
-      margin: 0 0 1.15rem;
-      font-size: 0.98rem;
+    /** Inline walkthrough line under Music with people (link + subline) */
+    .intro-how-after-rooms {
+      margin: 1rem 0 0;
+      font-size: 1rem;
       line-height: 1.55;
       color: var(--muted);
     }
 
-    .intro-how-it-works a {
-      display: inline-block;
-      padding: 0.65rem 1.35rem;
-      font-size: 1.05rem;
+    .intro-how-after-rooms a {
+      color: var(--accent);
       font-weight: 600;
-      color: var(--text);
       text-decoration: none;
-      background: var(--accent);
-      border-radius: 0.65rem;
-      border: 1px solid rgba(226, 75, 74, 0.35);
+      border-bottom: 1px solid rgba(226, 75, 74, 0.45);
     }
 
-    .intro-how-it-works a:hover {
-      opacity: 0.92;
-    }
-
-    .intro-how-it-works a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
+    .intro-how-after-rooms a:hover {
+      opacity: 0.9;
+      border-bottom-color: var(--accent);
     }
 
     .intro {
@@ -405,14 +378,11 @@
             Music with people, for the people
           </h2>
           <p>Host or join a room—small groups, low pressure; real community.</p>
+          <p class="intro-how-after-rooms">
+            <a href="how-it-works.html">How it works</a> — full app walkthrough with videos
+          </p>
         </div>
       </section>
-
-      <div class="intro-how-it-works">
-        <h2>How it works</h2>
-        <p>Screen-by-screen tour: Home, Signal, Search, Profile, Artists — tap clips to play or pause.</p>
-        <a href="how-it-works.html">Open the full walkthrough</a>
-      </div>
     </div>
 
     <footer>CHRD · 2026 · <a href="privacy.html">Privacy</a></footer>
