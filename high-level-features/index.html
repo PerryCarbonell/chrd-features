@@ -102,6 +102,30 @@
       margin-bottom: 0;
     }
 
+    /**
+     * Rooms row: desktop = phone | headline + crosslink; mobile = headline → phone → crosslink
+     */
+    .feature.intro-rooms-with-crosslink {
+      grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+      grid-template-areas:
+        "media headline"
+        "media crosslink";
+      align-items: start;
+    }
+
+    .feature.intro-rooms-with-crosslink .media {
+      grid-area: media;
+    }
+
+    .feature.intro-rooms-with-crosslink .copy-intro-headline {
+      grid-area: headline;
+    }
+
+    .feature.intro-rooms-with-crosslink .intro-rooms-crosslink {
+      grid-area: crosslink;
+      text-align: left;
+    }
+
     .intro {
       max-width: 72rem;
       margin: 0 auto 2rem;
@@ -296,6 +320,18 @@
         order: 0;
       }
 
+      .feature.intro-rooms-with-crosslink {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "headline"
+          "media"
+          "crosslink";
+      }
+
+      .feature.intro-rooms-with-crosslink .intro-rooms-crosslink {
+        margin-top: 0.25rem;
+      }
+
       .phone {
         max-width: 300px;
         min-height: 560px;
@@ -377,7 +413,7 @@
         </div>
       </section>
 
-      <section class="feature intro-city-music-highlight">
+      <section class="feature intro-city-music-highlight intro-rooms-with-crosslink">
         <div class="media">
           <div class="phone phone-video-cover">
             <video
@@ -393,7 +429,7 @@
             </video>
           </div>
         </div>
-        <div class="copy">
+        <div class="copy copy-intro-headline">
           <h2>
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -401,9 +437,9 @@
             Music with people, for the people
           </h2>
           <p class="intro-rooms-lede">Host or join a room—small groups, low pressure; real community.</p>
-          <div class="intro-page-crosslink">
-            <a href="how-it-works.html">How it works</a> — full app walkthrough with videos
-          </div>
+        </div>
+        <div class="intro-page-crosslink intro-rooms-crosslink">
+          <a href="how-it-works.html">How it works</a> — full app walkthrough with videos
         </div>
       </section>
     </div>
