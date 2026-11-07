@@ -94,22 +94,28 @@
     }
 
     /** No native `controls` on walkthrough videos — tap toggles play/pause (iOS Safari + Chrome) */
-    video.walkthrough-tap-video {
+    video.walkthrough-tap-video,
+    video.intro-mute-autoplay-video {
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
 
-    video.walkthrough-tap-video::-webkit-media-controls {
+    video.walkthrough-tap-video::-webkit-media-controls,
+    video.intro-mute-autoplay-video::-webkit-media-controls {
       display: none !important;
     }
 
-    video.walkthrough-tap-video::-webkit-media-controls-enclosure {
+    video.walkthrough-tap-video::-webkit-media-controls-enclosure,
+    video.intro-mute-autoplay-video::-webkit-media-controls-enclosure {
       display: none !important;
     }
 
     video.walkthrough-tap-video::-webkit-media-controls-panel,
     video.walkthrough-tap-video::-webkit-media-controls-play-button,
-    video.walkthrough-tap-video::-webkit-media-controls-start-playback-button {
+    video.walkthrough-tap-video::-webkit-media-controls-start-playback-button,
+    video.intro-mute-autoplay-video::-webkit-media-controls-panel,
+    video.intro-mute-autoplay-video::-webkit-media-controls-play-button,
+    video.intro-mute-autoplay-video::-webkit-media-controls-start-playback-button {
       display: none !important;
     }
 
@@ -317,7 +323,7 @@
     <header>
       <h1><a href="/">CHRD</a></h1>
       <h2 class="walkthrough-page-title">How it works</h2>
-      <p>Screen-by-screen walkthrough — tap any clip to pause or play.</p>
+      <p>Screen-by-screen walkthrough — clips autoplay when in view; tap to pause or play.</p>
     </header>
 
     <div class="section-group">
@@ -604,28 +610,6 @@
 
     <footer>CHRD · 2026 · <a href="/">Home</a> · <a href="privacy.html">Privacy</a></footer>
   </div>
-  <script>
-    (function () {
-      function safePlay(node) {
-        if (!node || typeof node.play !== "function") return;
-        var p = node.play();
-        if (p && typeof p.catch === "function") {
-          p.catch(function () {});
-        }
-      }
-
-      var all = document.querySelectorAll("video.walkthrough-tap-video");
-      for (var i = 0; i < all.length; i++) {
-        all[i].addEventListener("click", function (ev) {
-          ev.preventDefault();
-          if (this.paused) {
-            safePlay(this);
-          } else {
-            this.pause();
-          }
-        });
-      }
-    })();
-  </script>
+  <script src="walkthrough-videos.js?v=1" defer></script>
 </body>
 </html>
