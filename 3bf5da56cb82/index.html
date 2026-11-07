@@ -289,6 +289,18 @@
         order: initial;
       }
 
+      /**
+       * Intro city / rooms rows: on narrow screens show headline + body before the phone
+       * (DOM has media first on `reverse` rows; `order: initial` would keep video on top).
+       */
+      .intro .feature.intro-city-music-highlight .copy {
+        order: -1;
+      }
+
+      .intro .feature.intro-city-music-highlight .media {
+        order: 0;
+      }
+
       .phone {
         max-width: 300px;
         min-height: 560px;
