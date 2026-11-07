@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High level features — CHRD</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #1e1f22;
+      --line: #36393f;
+      --text: #ffffff;
+      --muted: #a0a1a7;
+      --accent: #E24B4A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    header h1 {
+      font-size: clamp(2.75rem, 7vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    header h1 a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    header h1 a:hover {
+      opacity: 0.88;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    header h2.page-eyebrow {
+      font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0.35rem 0 0.85rem;
+    }
+
+    header p.header-early-beta {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: rgba(160, 161, 167, 0.92);
+      letter-spacing: 0.01em;
+    }
+
+    /** Cross-page links (How it works ↔ high level overview) */
+    .intro-page-crosslink {
+      display: block;
+      margin: 0;
+      margin-top: 2.75rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .intro-page-crosslink a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(226, 75, 74, 0.45);
+    }
+
+    .intro-page-crosslink a:hover {
+      opacity: 0.9;
+      border-bottom-color: var(--accent);
+    }
+
+    .intro .feature.intro-city-music-highlight .copy > p.intro-rooms-lede {
+      margin-bottom: 0;
+    }
+
+    .intro {
+      max-width: 72rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .intro p {
+      margin: 0 0 0.55rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+
+    /** Intro Signal clip — same grid + phone shell as feature sections (video | copy) */
+    .intro-signal-landing-feature.feature {
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro .intro-signal-landing-feature .copy {
+      max-width: 38rem;
+      text-align: left;
+    }
+
+    .intro .intro-signal-landing-feature .copy p {
+      margin: 0 0 1.125rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .intro .intro-signal-landing-feature .copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro .feature.intro-city-music-highlight {
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .intro .feature.intro-city-music-highlight .copy {
+      text-align: left;
+    }
+
+    .intro .feature.intro-city-music-highlight .copy h2 {
+      flex-wrap: wrap;
+    }
+
+    video.walkthrough-tap-video {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    video.walkthrough-tap-video::-webkit-media-controls {
+      display: none !important;
+    }
+
+    video.walkthrough-tap-video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+
+    video.walkthrough-tap-video::-webkit-media-controls-panel,
+    video.walkthrough-tap-video::-webkit-media-controls-play-button,
+    video.walkthrough-tap-video::-webkit-media-controls-start-playback-button {
+      display: none !important;
+    }
+
+    .brand-mark {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .intro > p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .feature.reverse {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+    }
+
+    .feature.reverse .media { order: 2; }
+    .feature.reverse .copy { order: 1; }
+
+    .phone {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+      aspect-ratio: 9 / 19.5;
+      min-height: 720px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .phone video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    /** Screen recordings — crop baked in; cover fills the phone shell without letterboxing */
+    .phone.phone-video-cover video {
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .copy h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .copy h2 .icon {
+      display: inline-flex;
+      flex-shrink: 0;
+      width: 1.15em;
+      height: 1.15em;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .copy h2 .icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.65rem;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 1.5rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--line);
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    footer a:hover {
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .feature,
+      .feature.reverse {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .feature.reverse .media,
+      .feature.reverse .copy {
+        order: initial;
+      }
+
+      /**
+       * Intro city / rooms rows: on narrow screens show headline + body before the phone
+       * (DOM has media first on `reverse` rows; `order: initial` would keep video on top).
+       */
+      .intro .feature.intro-city-music-highlight .copy {
+        order: -1;
+      }
+
+      .intro .feature.intro-city-music-highlight .media {
+        order: 0;
+      }
+
+      .phone {
+        max-width: 300px;
+        min-height: 560px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="/">CHRD</a></h1>
+      <h2 class="page-eyebrow">High level features</h2>
+      <p>Discover music people near you — same taste, same city, everywhere you go.</p>
+      <p class="header-early-beta">Early beta. Your feedback shapes it.</p>
+    </header>
+
+    <div class="intro">
+      <p>CHRD is real-time social discovery for music lovers.</p>
+      <p>Find your people, connect, and find your scene.</p>
+
+      <section class="feature intro-signal-landing-feature">
+        <div class="media">
+          <div class="phone">
+            <video
+              class="intro-signal-landing-hero-video intro-mute-autoplay-video walkthrough-tap-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              aria-label="Signal feed walkthrough — tap to pause or play"
+            >
+              <source src="videos/signal-landing-web.mp4?v=23" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="copy">
+          <p>
+            <span class="brand-mark">CHRD</span> looks at what you love (songs, artists, albums, gigs) and helps you bump into
+            people nearby who love the same things.
+          </p>
+          <p>
+            Save a song you care about; when someone close by is into it too, you might get a small, unexpected moment
+            between you—a shared mood, not a dating pitch.
+          </p>
+          <p>
+            Your feed is split into three rings of distance: <strong>who&apos;s closest</strong>,
+            <strong>who&apos;s elsewhere in town today</strong>, and <strong>who&apos;s farther out</strong>—so what you
+            see lines up with how near or far people are, not just what they like. All prioritised based on your musical
+            taste.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature reverse intro-city-music-highlight">
+        <div class="media">
+          <div class="phone">
+            <video
+              class="intro-mute-autoplay-video walkthrough-tap-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              aria-label="See your city through music — tap to pause or play"
+            >
+              <source src="videos/signal-new/meetup-web.mp4?v=19" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="copy">
+          <h2>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            See your city through music
+          </h2>
+          <p>Go live or join an event around you—solo moments and real-world meetups on the map.</p>
+        </div>
+      </section>
+
+      <section class="feature intro-city-music-highlight">
+        <div class="media">
+          <div class="phone phone-video-cover">
+            <video
+              class="intro-mute-autoplay-video walkthrough-tap-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              aria-label="Music with people, for the people — tap to pause or play"
+            >
+              <source src="videos/music-with-people-web.mp4?v=2" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="copy">
+          <h2>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            Music with people, for the people
+          </h2>
+          <p class="intro-rooms-lede">Host or join a room—small groups, low pressure; real community.</p>
+          <div class="intro-page-crosslink">
+            <a href="how-it-works.html">How it works</a> — full app walkthrough with videos
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>CHRD · 2026 · <a href="/">Home</a> · <a href="privacy.html">Privacy</a></footer>
+  </div>
+  <script>
+    (function () {
+      function safePlay(node) {
+        if (!node || typeof node.play !== "function") return;
+        var p = node.play();
+        if (p && typeof p.catch === "function") {
+          p.catch(function () {});
+        }
+      }
+
+      var all = document.querySelectorAll("video.walkthrough-tap-video");
+      for (var i = 0; i < all.length; i++) {
+        all[i].addEventListener("click", function (ev) {
+          ev.preventDefault();
+          if (this.paused) {
+            safePlay(this);
+          } else {
+            this.pause();
+          }
+        });
+      }
+
+      var introAutoplays = document.querySelectorAll("video.intro-mute-autoplay-video");
+      for (var h = 0; h < introAutoplays.length; h++) {
+        (function (el) {
+          el.defaultMuted = true;
+          el.muted = true;
+
+          function tryIntroPlay() {
+            safePlay(el);
+          }
+
+          el.addEventListener("canplay", tryIntroPlay, { once: true });
+          el.addEventListener("ended", function () {
+            el.currentTime = 0;
+            tryIntroPlay();
+          });
+
+          document.addEventListener("visibilitychange", function () {
+            if (!document.hidden) tryIntroPlay();
+          });
+          window.addEventListener("pageshow", function (ev) {
+            if (ev.persisted) tryIntroPlay();
+          });
+
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", tryIntroPlay);
+          } else {
+            tryIntroPlay();
+          }
+        })(introAutoplays[h]);
+      }
+    })();
+  </script>
+</body>
+</html>
